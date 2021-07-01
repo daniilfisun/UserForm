@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/Main.css" type="text/css" rel="stylesheet">
+    <title>Форма</title>
+</head>
+<body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="JS/MyCode.js"></script>
+  
+    <div class = 'all-form'>
+        <form  class = 'form' action="" method="post" id = 'form'>
+        
+          <div class="onefield">
+                <p>Фамилия<span class="must">*</span></p>
+                <input  v-model = "surename">
+            </div>
+            
+            <div class="onefield">
+                <p>Имя<span class="must">*</span></p>
+                <input v-model = "name">
+            </div>
+            
+            
+            <div class="onefield">
+                <p>Отчество</p>
+                <input v-model = "patronymic">
+            </div>
+            
+            <div class="onefield">
+                <p>Дата рождения<span class="must">*</span></p>
+                <input v-model = "borndate">
+            </div>
+            
+            <div class="onefield">
+                <p>Номер телефона<span class="must">*</span></p>
+                <input  v-on:focus="clearNumber" placeholder="7 --- --- -- --" v-model = "phonenumber">
+            </div>
+            
+             
+            <div class="onefield">
+                <p>Пол</p>
+                <input v-model = "sex">
+            </div>
+            
+             <div class="onefield">
+                <p>Группа клиентов:<span class="must">*</span>.</p>
+                <select  multiple  v-model='mustoption' >
+                   <option v-for="option in mustoptions">{{ option }}</option>
+                </select>
+            </div>
+            
+            <div class="onefield">
+                <p>Лечащий врач.</p>
+                <select  v-model="doctor">
+                   <option v-for="option in doctors">{{ option }}</option>
+                </select>
+            </div>
+            
+            <div class="onefield">
+                <p>Не отправлять СМС. <input v-model = "chekSMS" type="checkbox"></p>
+            </div>
+            
+            <h3>Адрес:</h3>
+            
+            <div class="onefield">
+                <p>Индекс</p>
+                <input v-model = "index">
+            </div>
+            
+            <div class="onefield">
+                <p>Страна</p>
+                <input v-model = "country">
+            </div>
+            
+            
+            <div class="onefield">
+                <p>Область</p>
+                <input v-model = "area">
+            </div>
+            
+            <div class="onefield">
+                <p>Город<span class="must">*</span></p>
+                <input v-model = "city">
+            </div>
+            
+            <div class="onefield">
+                <p>Улица</p>
+                <input v-model = "street">
+            </div>
+            
+            <div class="onefield">
+                <p>Дом</p>
+                <input v-model = "home">
+            </div>
+            
+            <h3>Паспорт:</h3>
+            
+            <div class="onefield">
+                <p>Тип документа<span class="must">*</span></p>
+                <select  v-model="doc">
+                   <option v-for="option in docs">{{ option }}</option>
+                </select>
+            </div>
+            
+            <div class="onefield">
+                <p>Серия</p>
+                <input v-model = "seria">
+            </div>
+            
+            <div class="onefield">
+                <p>Номер</p>
+                <input v-model = "number">
+            </div>
+            
+            <div class="onefield">
+                <p>Кем выдан</p>
+                <input v-model = "distributer">
+            </div>
+            
+            <div class="onefield">
+                <p>Дата выдачи<span class="must">*</span></p>
+                <input v-model = 'date'>
+            </div>
+            
+            <p class="red"><span class="must">*</span> Поле обязательное для заполнения.</p>
+            <p class="red must" id = 'errorMessage'> </p>
+            <input type="submit" @click.prevent = 'send' value="Отправить">
+            
+        </form>
+    </div>
+   
+    
+</body>
+</html>
